@@ -7,16 +7,21 @@
     "gravatar": "^1.8.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.5.1",
+    "node-pre-gyp": "^0.12.0",
     "nodejs": "0.0.0",
     "passport": "^0.4.0",
     "passport-jwt": "^4.0.0",
+    "swagger-ui": "^3.22.1",
     "validator": "^10.11.0"
   },
   "name": "node_jwt",
   "description": "NODE.JS JWT Auth Server",
   "version": "1.0.0",
   "main": "app.js",
-  "devDependencies": {},
+  "devDependencies": {
+    "swagger-jsdoc": "^3.2.8",
+    "swagger-ui-express": "^4.0.2"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

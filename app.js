@@ -1,6 +1,9 @@
+
 //todo Express Engine Using 
 const express = require('express');
 const app = express();
+
+
 //todo POST 방식 body-Parser 
 const bodyParser = require('body-parser');
 //todo PORT 3002
@@ -21,6 +24,8 @@ app.use(bodyParser.json());
 
 app.use('/user',route_signin);
 app.use('/user',route_signup);
+//todo Swagger-ui 적용
+app.use('/swagger-ui', express.static('./node_modules/swagger-ui/dist'));
 
 //todo  REST API GET '/' 요청 -> get방식은 URL에서 쿼리스트링으로 가져온다. POST와 차이점 
 //todo query params vs URL params vs form params
