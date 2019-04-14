@@ -29,7 +29,8 @@ router.post('/signup',(req,res) =>{
                         const user = new User({
                             _id : new mongoose.Types.ObjectId(),
                             email : req.body.email,
-                            password: hash
+                            password: hash,
+                            auth: false
                         });
                         //todo 객채를 생성하고 Sign Status 200 server to request
                         user.save().then((result) =>{
