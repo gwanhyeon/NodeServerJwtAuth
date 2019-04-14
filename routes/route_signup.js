@@ -24,6 +24,7 @@ router.post('/signup',(req,res) =>{
             user.save().then((result) =>{
                 console.log(result);
                 res.status(200).json({
+                    success : "New User has been Created"
 
                 })
                 //todo server 쪽에서 Error
@@ -36,4 +37,4 @@ router.post('/signup',(req,res) =>{
     })
 })
 
-module.exports = router_signup;
+module.exports = router;
