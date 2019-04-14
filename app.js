@@ -6,16 +6,19 @@ const bodyParser = require('body-parser');
 //todo PORT 3002
 const PORT = 3002;
 //todo mongoose 
-const mongoose = require('mongoose');
+const db = require('./dbs/db');
 //todo Rotuer Connection to module
 const route_signin = require('./routes/route_signin');
 const route_signup = require('./routes/route_signup');
-mongoose.connect('mongodb://localhost:27017/JWT_TEST');
+
+//todo database 연결 및 설정
+db.db_connect;
+
 //todo bodyparser(인코딩 설정, JSON 설정)
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 //todo route signup, signin router connect to and then using exporess moduel 
-// app.use(db);
+
 app.use('/user',route_signin);
 app.use('/user',route_signup);
 
