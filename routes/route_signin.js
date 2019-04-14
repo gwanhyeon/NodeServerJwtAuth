@@ -9,10 +9,10 @@ router.post('/signin',(req,res) =>{
     User.findOne({email: req.body.email})
     .exec()
     .then((user) =>{            //todo exec() 시킨후 찾은 이메일 값으로 -> all json data -> user
-        bcrypt.compare(req.body.password, (err,result) =>{
+        bcrypt.compare(req.body.password, user.password, (err,result) =>{
             if(err){
                 return res.status(401).json({
-                    failed : "unauthorzied Access"
+                    failed : "unauthorzied Access1"
                 })
             }
             //todo input user data value validation(result == true 일경우 회원가입된 사람)
@@ -20,8 +20,6 @@ router.post('/signin',(req,res) =>{
                 const JWTToekn = jwt.sign({
                     email : user.email,
                     _id: user._id
-                    
-                    
                 },
                 'secret',
                 {
@@ -34,7 +32,7 @@ router.post('/signin',(req,res) =>{
                 });
             }
             return res.status(401).json({
-                failed : "Unauthorized Access"
+                failed : "Unauthorized Access2"
             })
         })
 
