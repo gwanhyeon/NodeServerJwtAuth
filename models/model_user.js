@@ -7,5 +7,6 @@ const user = mongoose.Schema({
     _id : mongoose.Types.ObjectId,
     email : {type: String , required: true},
     password : {type: String, required: true},
+    auth : {type: Boolean, required: true}
 })
 module.exports = mongoose.model('User',user);

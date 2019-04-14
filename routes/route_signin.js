@@ -8,8 +8,10 @@ const User = require('../models/model_user');
 router.post('/signin',(req,res) =>{
     User.findOne({email: req.body.email})
     .exec()
-    .then((user) =>{            //todo exec() 시킨후 찾은 이메일 값으로 -> all json data -> user
+    .then((user) =>{            //todo 현재 모델 값들 exec() 시킨후 찾은 이메일 값으로 -> all json data -> user
         bcrypt.compare(req.body.password, user.password, (err,result) =>{
+            user.auth = result;
+            console.log(user);
             if(err){
                 return res.status(401).json({
                     failed : "unauthorzied Access1"
